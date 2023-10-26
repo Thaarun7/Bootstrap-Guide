@@ -1,0 +1,54 @@
+// import function and variables
+
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/mixins";
+
+// inserting poppins font style
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+// variable font declaration
+$font-stack: "Poppins", sans-serif;
+
+$HeaderSize: 27px;
+
+// variable color declaration
+$primary-color: red;
+$violet: #6e33b0;
+
+// custom variables
+$custom-theme-color: (
+  violet: $violet,
+);
+
+$theme-colors: map-merge($custom-theme-color, $theme-colors);
+
+// base
+body {
+  font-family: $font-stack;
+}
+
+// mixins
+
+@mixin theme($theme: DarkGray) {
+  color: $theme !important;
+  font-size: $HeaderSize;
+  font-weight: 600;
+}
+
+.nav_Header {
+  @include theme($theme: $violet);
+}
+
+// extend and inherit styles
+%message-shared {
+  color: #423c3c;
+}
+
+.timmer {
+  @extend %message-shared;
+  font-size: 22px;
+}
+
+// importing bootstrap
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
